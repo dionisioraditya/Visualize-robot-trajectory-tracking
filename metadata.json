@@ -1,0 +1,5 @@
+{
+  "name": "Adaptive Robot Control Interactive",
+  "description": "An interactive visualization of the research paper 'An adaptive dynamic controller for autonomous mobile robot trajectory tracking' by Martins et al., featuring real-time physics simulation of unicycle robots.",
+  "requestFramePermissions": []
+}
