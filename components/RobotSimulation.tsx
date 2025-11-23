@@ -9,7 +9,7 @@ interface RobotSimulationProps {
 
 export const RobotSimulation: React.FC<RobotSimulationProps> = ({ config, onUpdate }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number>(0);
   
   // Simulation State Refs (Mutable for loop performance)
   const timeRef = useRef(0);
@@ -105,9 +105,9 @@ export const RobotSimulation: React.FC<RobotSimulationProps> = ({ config, onUpda
 
     // Adaptation Law (Simplified Eq 13: theta_dot = Gamma * Error)
     // If adaptive is ON, we adjust estimated theta to match real mass impact
+    // This is a phenomenological approximation of the paper's math for visual stability
     if (config.isAdaptive) {
         // If there is error, increase "effort" (represented by theta parameters here)
-        // This is a phenomenological approximation of the paper's math for visual stability
         const adaptationRate = 0.05;
         if (distError > 0.05) {
              // If we have load, we need higher gains. 

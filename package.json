@@ -1,7 +1,6 @@
 {
-  "homepage": "https://dionisioraditya.github.io/Visualize-robot-trajectory-tracking",
   "name": "adaptive-robot-control-interactive",
-  "private": false,
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
