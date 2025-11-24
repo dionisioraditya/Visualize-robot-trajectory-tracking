@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { SIM_CONSTANTS, TrajectoryType, COLORS } from '../constants';
 import { ControlConfig, SimulationState } from '../types';
 
@@ -28,7 +28,7 @@ export const RobotSimulation: React.FC<RobotSimulationProps> = ({ config, onUpda
   }, [config.trajectory]);
 
   const getReferencePoint = (t: number): { x: number; y: number; dx: number; dy: number } => {
-    const scale = 1.5; // meters
+    // scale variable removed as it was unused
     const speed = 0.5; // rad/s
     
     if (config.trajectory === TrajectoryType.CIRCLE) {
@@ -101,7 +101,7 @@ export const RobotSimulation: React.FC<RobotSimulationProps> = ({ config, onUpda
     const realMass = baseMass + loadMass;
     
     // "Estimated" parameters (Updated by Adaptive Law)
-    let { thetaM, thetaI } = adaptiveParamsRef.current;
+    let { thetaM } = adaptiveParamsRef.current; // Removed unused thetaI
 
     // Adaptation Law (Simplified Eq 13: theta_dot = Gamma * Error)
     // If adaptive is ON, we adjust estimated theta to match real mass impact
